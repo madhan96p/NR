@@ -9,6 +9,8 @@ import {
   FlatList,
   StyleSheet,
   SafeAreaView,
+  Image, 
+  ImageBackground,
   Linking,
   Pressable,
 } from 'react-native';
@@ -67,16 +69,27 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      
         {/* Header Section */}
-        <View style={styles.header}>
-          <Text style={styles.title}>Discover</Text>
-          <Text style={styles.subtitle}>Amazing places around the world</Text>
-        </View>
-
+            <ImageBackground
+      source={{ uri: 'https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg' }}
+      style={styles.headerBackground}
+    >
+      <View style={styles.header}>
+        <Image
+          source={{ uri: 'project/assets/images/icon.png' }}
+          style={styles.logo}
+        />
+        <Text style={styles.title}>Discover</Text>
+        <Text style={styles.subtitle}>
+          Amazing places around the world
+        </Text>
+      </View>
+    </ImageBackground>
+<ScrollView showsVerticalScrollIndicator={false}>
         {/* Categories Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Categories</Text>
+          <Text style={styles.sectionTitle}>    Categories</Text>
           <FlatList
             data={categories}
             renderItem={renderCategory}
@@ -127,20 +140,38 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F8F9FA',
   },
+  headerBackground: {
+    width: '100%',
+    height: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   header: {
-    padding: 24,
-    paddingTop: 16,
+    padding: 20,
+    alignItems: 'center',
+  },
+  logo: {
+    width: 80,
+    height: 80,
+    marginBottom: 12,
+    borderRadius: 40,
   },
   title: {
-    fontSize: 32,
-    fontWeight: '700',
-    color: '#2C3E50',
-    marginBottom: 4,
+    fontSize: 34,
+    fontWeight: '800',
+    color: '#fff',
+    textShadowColor: 'rgba(0, 0, 0, 0.4)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 3,
   },
   subtitle: {
-    fontSize: 16,
-    color: '#7F8C8D',
+    fontSize: 18,
+    color: '#f1f1f1',
     lineHeight: 22,
+    marginTop: 4,
+    textShadowColor: 'rgba(0, 0, 0, 0.3)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
   },
   section: {
     marginBottom: 24,
