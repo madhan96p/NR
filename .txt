@@ -1,0 +1,24 @@
+travel-guide/
+│
+├── App.js                # Entry file
+├── app.json              # Expo config
+├── package.json          # Dependencies
+│
+├── assets/               # Images, icons, etc.
+│   └── images/
+│       └── beach.jpg
+│
+├── data/                 # Static data (JSON for places)
+│   └── places.js
+│
+├── navigation/           # Navigation setup
+│   └── AppNavigator.js
+│
+├── screens/              # All screens
+│   ├── HomeScreen.js
+│   ├── PlacesListScreen.js
+│   └── PlaceDetailScreen.js
+│
+└── components/           # Reusable UI components
+    ├── PlaceCard.js
+    └── SearchBar.js
