@@ -1,7 +1,7 @@
 // Home screen - Main landing page showing categories and featured places
 // Displays travel categories and highlighted destinations
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -19,8 +19,19 @@ import { categories, getFeaturedPlaces } from '../../data/places';
 import CategoryCard from '../../components/CategoryCard';
 import PlaceCard from '../../components/PlaceCard';
 
+// Helper function to shuffle an array (Fisher-Yates shuffle)
+// This ensures the "Featured Places" list is different on each app load, but stable during the session.
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
 export default function HomeScreen() {
-  const featuredPlaces = getFeaturedPlaces();
+  const [featuredPlaces] = useState(() => shuffleArray(getFeaturedPlaces()));
 
   // Navigate to explore screen with category filter
   const handleCategoryPress = (category: Category) => {
@@ -72,7 +83,7 @@ export default function HomeScreen() {
 
       {/* Header Section */}
       <ImageBackground
-        source={{ uri: 'https://static.vecteezy.com/system/resources/thumbnails/013/126/439/original/beautiful-retro-background-animation-with-sun-sun-and-star-moving-retro-animation-high-tech-background-sci-fi-retro-land-with-glowing-sun-80-s-landscape-loop-animation-bg-video.jpg' }}
+        source={{ uri: 'https://tse3.mm.bing.net/th/id/OIP.9-H1u3-h7BtMsf75V76idQAAAA?auto=compress&pid=ImgDet' }}
         style={styles.headerBackground}
       >
         <View style={styles.header}>
@@ -89,7 +100,7 @@ export default function HomeScreen() {
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Categories Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}></Text>
+          <Text style={styles.sectionTitle}>  </Text>
           <Text style={styles.sectionTitle}>    Categories</Text>
           <FlatList
             data={categories}
@@ -117,6 +128,7 @@ export default function HomeScreen() {
             showsVerticalScrollIndicator={false}
             scrollEnabled={false} // Disable scroll since it's inside ScrollView
           />
+
         </View>
       </ScrollView>
 
@@ -156,14 +168,15 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 34,
     fontWeight: '400',
-    color: '#fff',
+    color: 'black',
     textShadowColor: 'rgba(0, 0, 0, 0.4)',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 3,
   },
   subtitle: {
     fontSize: 18,
-    color: '#f1f1f1',
+    color: '#343333ff',
+    fontWeight: '400',
     lineHeight: 22,
     marginTop: 4,
     textShadowColor: 'rgba(0, 0, 0, 0.3)',

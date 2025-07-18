@@ -34,7 +34,7 @@ export default function ExploreScreen() {
   // Handle search functionality
   const handleSearch = (query: string) => {
     setSearchQuery(query);
- 
+
     if (query.trim() === '') {
       // If search is empty, revert to the initial state (all or category-filtered)
       const baseList = params.category
@@ -74,6 +74,14 @@ export default function ExploreScreen() {
       place={item}
       onPress={() => handlePlacePress(item)}
     />
+  );
+
+  // Render search suggestion item (lighter weight for faster scanning)
+  const renderSearchSuggestion = ({ item }: { item: typeof places[number] }) => (
+    <Pressable style={styles.suggestionItem} onPress={() => handlePlacePress(item)}>
+      <Text style={styles.suggestionText}>{item.name}</Text>
+      <Text style={styles.suggestionCategory}>{item.category}</Text>
+    </Pressable>
   );
 
   // Render category item for the vertical list
@@ -141,8 +149,8 @@ export default function ExploreScreen() {
           </View>
         ) : (
           <FlatList
-            data={filteredPlaces}
-            renderItem={renderPlace}
+            data={filteredPlaces} // This list contains search results when searching
+            renderItem={searchQuery ? renderSearchSuggestion : renderPlace}
             keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.listContainer}
@@ -150,7 +158,7 @@ export default function ExploreScreen() {
           />
         )}
       </SafeAreaView>
-      
+
       {/* Footer Branding */}
       <View style={styles.footer}>
         <Text style={styles.footerText}>
@@ -224,6 +232,25 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
     color: '#2C3E50',
+  },
+  suggestionItem: {
+    backgroundColor: '#FFF',
+    paddingHorizontal: 24,
+    paddingVertical: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E9ECEF',
+  },
+  suggestionText: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#2C3E50',
+    marginBottom: 2,
+  },
+  suggestionCategory: {
+    fontSize: 12,
+    color: '#7F8C8D',
+    textTransform: 'uppercase',
+    fontWeight: '600',
   },
   listContainer: {
     paddingBottom: 24,
