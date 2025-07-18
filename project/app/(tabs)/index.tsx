@@ -9,7 +9,7 @@ import {
   FlatList,
   StyleSheet,
   SafeAreaView,
-  Image, 
+  Image,
   ImageBackground,
   Linking,
   Pressable,
@@ -69,26 +69,27 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      
-        {/* Header Section */}
-            <ImageBackground
-      source={{ uri: 'https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg' }}
-      style={styles.headerBackground}
-    >
-      <View style={styles.header}>
-        <Image
+
+      {/* Header Section */}
+      <ImageBackground
+        source={{ uri: 'https://static.vecteezy.com/system/resources/thumbnails/013/126/439/original/beautiful-retro-background-animation-with-sun-sun-and-star-moving-retro-animation-high-tech-background-sci-fi-retro-land-with-glowing-sun-80-s-landscape-loop-animation-bg-video.jpg' }}
+        style={styles.headerBackground}
+      >
+        <View style={styles.header}>
+          {/* <Image
           source={{ uri: 'project/assets/images/icon.png' }}
           style={styles.logo}
-        />
-        <Text style={styles.title}>Discover</Text>
-        <Text style={styles.subtitle}>
-          Amazing places around the world
-        </Text>
-      </View>
-    </ImageBackground>
-<ScrollView showsVerticalScrollIndicator={false}>
+        /> */}
+          <Text style={styles.title}>Discover</Text>
+          <Text style={styles.subtitle}>
+            Amazing places around the world
+          </Text>
+        </View>
+      </ImageBackground>
+      <ScrollView showsVerticalScrollIndicator={false}>
         {/* Categories Section */}
         <View style={styles.section}>
+          <Text style={styles.sectionTitle}></Text>
           <Text style={styles.sectionTitle}>    Categories</Text>
           <FlatList
             data={categories}
@@ -108,7 +109,7 @@ export default function HomeScreen() {
               <Text style={styles.seeAllText}>See All</Text>
             </Pressable>
           </View>
-          
+
           <FlatList
             data={featuredPlaces}
             renderItem={renderFeaturedPlace}
@@ -118,7 +119,7 @@ export default function HomeScreen() {
           />
         </View>
       </ScrollView>
-      
+
       {/* Footer Branding */}
       <View style={styles.footer}>
         <Text style={styles.footerText}>
@@ -146,19 +147,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  header: {
-    padding: 20,
-    alignItems: 'center',
-  },
-  logo: {
-    width: 80,
-    height: 80,
-    marginBottom: 12,
-    borderRadius: 40,
-  },
+  // logo: {
+  //   width: 80,
+  //   height: 80,
+  //   marginBottom: 12,
+  //   borderRadius: 40,
+  // },
   title: {
     fontSize: 34,
-    fontWeight: '800',
+    fontWeight: '400',
     color: '#fff',
     textShadowColor: 'rgba(0, 0, 0, 0.4)',
     textShadowOffset: { width: 1, height: 1 },
@@ -172,6 +169,10 @@ const styles = StyleSheet.create({
     textShadowColor: 'rgba(0, 0, 0, 0.3)',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 2,
+  },
+  header: {
+    padding: 24,
+    paddingBottom: 8,
   },
   section: {
     marginBottom: 24,

@@ -16,6 +16,7 @@ import {
   Platform,
 } from 'react-native';
 import { Calendar, MapPin, Users, Phone, Mail, MessageSquare } from 'lucide-react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function BookingScreen() {
   const [formData, setFormData] = useState({
@@ -33,6 +34,7 @@ export default function BookingScreen() {
   type FormErrors = Partial<Record<keyof typeof formData, string>>;
 
   const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Update form field
   const updateField = (field: keyof typeof formData, value: string) => {
@@ -87,31 +89,49 @@ export default function BookingScreen() {
   };
 
   // Handle form submission
-  const handleSubmit = () => {
-    if (validateForm()) {
+  const handleSubmit = async () => {
+    if (!validateForm() || isSubmitting) {
+      return; // Stop if validation fails or already submitting
+    }
+
+    setIsSubmitting(true);
+
+    const newBooking = { ...formData, submittedAt: new Date().toISOString(), id: Date.now().toString() };
+
+    try {
+      // 1. Get existing bookings from storage
+      const existingBookingsRaw = await AsyncStorage.getItem('bookings');
+      const existingBookings = existingBookingsRaw ? JSON.parse(existingBookingsRaw) : [];
+
+      // 2. Add the new booking to the list
+      const updatedBookings = [...existingBookings, newBooking];
+
+      // 3. Save the updated list back to storage
+      await AsyncStorage.setItem('bookings', JSON.stringify(updatedBookings));
+
+      // For debugging: You can log the stored data to the console
+      console.log('Booking saved! Current bookings:', updatedBookings);
+
       Alert.alert(
         'Booking Confirmed! 🎉',
-        `Thank you ${formData.fullName}! Your trip from ${formData.pickupLocation} to ${formData.destination} has been submitted.\n\nOur team will contact you within 24 hours to confirm details.\n\nThis booking service is powered by Shrish Travels — Trusted by thousands since 2020.`,
-        [
-          {
-            text: 'OK',
-            onPress: () => {
-              // Reset form
-              setFormData({
-                fullName: '',
-                mobileNumber: '',
-                email: '',
-                pickupLocation: '',
-                destination: '',
-                travelDate: '',
-                numberOfTravelers: '1',
-                tripType: 'One Way',
-                specialNotes: '',
-              });
-            }
-          }
-        ]
+        `Thank you, ${formData.fullName}! Your request has been submitted. Our team will contact you shortly.`,
+        [{
+          text: 'OK',
+          onPress: () => {
+            // Reset form
+            setFormData({
+              fullName: '', mobileNumber: '', email: '', pickupLocation: '',
+              destination: '', travelDate: '', numberOfTravelers: '1',
+              tripType: 'One Way', specialNotes: '',
+            });
+          },
+        }]
       );
+    } catch (error) {
+      console.error('Submission Error:', error);
+      Alert.alert('Storage Error', 'Could not save your booking. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -289,8 +309,10 @@ export default function BookingScreen() {
             </View>
 
             {/* Submit Button */}
-            <Pressable style={styles.submitButton} onPress={handleSubmit}>
-              <Text style={styles.submitButtonText}>Submit Booking Request</Text>
+            <Pressable style={[styles.submitButton, isSubmitting && styles.submitButtonDisabled]} onPress={handleSubmit} disabled={isSubmitting}>
+              <Text style={styles.submitButtonText}>
+                {isSubmitting ? 'Submitting...' : 'Submit Booking Request'}
+              </Text>
             </Pressable>
 
             {/* Powered by Shrish Travels */}
@@ -419,6 +441,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 8,
     marginBottom: 24,
+  },
+  submitButtonDisabled: {
+    backgroundColor: '#AAB7B8',
   },
   submitButtonText: {
     fontSize: 18,
