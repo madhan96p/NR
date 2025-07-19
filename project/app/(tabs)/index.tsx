@@ -85,23 +85,27 @@ export default function HomeScreen() {
       <ImageBackground
         source={{ uri: 'https://tse3.mm.bing.net/th/id/OIP.9-H1u3-h7BtMsf75V76idQAAAA?auto=compress&pid=ImgDet' }}
         style={styles.headerBackground}
+        resizeMode="cover"
       >
-        <View style={styles.header}>
-          {/* <Image
-          source={{ uri: 'project/assets/images/icon.png' }}
-          style={styles.logo}
-        /> */}
-          <Text style={styles.title}>Discover</Text>
-          <Text style={styles.subtitle}>
-            Amazing places around the world
-          </Text>
+        <View style={styles.headerOverlay}>
+          <View style={styles.header}>
+            <View style={styles.headerContent}>
+              <Image
+                source={require('../../assets/images/icon.png')}
+                style={styles.logo}
+              />
+              <View>
+                <Text style={styles.title}>Discover</Text>
+                <Text style={styles.subtitle}>Amazing places around the world</Text>
+              </View>
+            </View>
+          </View>
         </View>
       </ImageBackground>
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Categories Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>  </Text>
-          <Text style={styles.sectionTitle}>    Categories</Text>
+          <Text style={styles.sectionTitle}>Categories</Text>
           <FlatList
             data={categories}
             renderItem={renderCategory}
@@ -153,42 +157,50 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F8F9FA',
   },
-  headerBackground: {
-    width: '100%',
-    height: 100,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  // logo: {
-  //   width: 80,
-  //   height: 80,
-  //   marginBottom: 12,
-  //   borderRadius: 40,
-  // },
-  title: {
-    fontSize: 34,
-    fontWeight: '400',
-    color: 'black',
-    textShadowColor: 'rgba(0, 0, 0, 0.4)',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 3,
-  },
-  subtitle: {
-    fontSize: 18,
-    color: '#343333ff',
-    fontWeight: '400',
-    lineHeight: 22,
-    marginTop: 4,
-    textShadowColor: 'rgba(0, 0, 0, 0.3)',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 2,
-  },
-  header: {
-    padding: 24,
-    paddingBottom: 8,
-  },
+  // ...existing code...
+    headerBackground: {
+      width: '100%',
+      height: 160, // Slightly taller for more impact
+    },
+    headerOverlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.4)',
+      justifyContent: 'flex-end',
+    },
+    header: {
+      paddingVertical: 32,
+      paddingHorizontal: 24,
+      width: '100%',
+    },
+    headerContent: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+    },
+    logo: {
+      width: 48,
+      height: 48,
+      borderRadius: 24,
+      marginRight: 16,
+      borderWidth: 2,
+      borderColor: 'rgba(255, 255, 255, 0.7)',
+    },
+    title: {
+      fontSize: 28,
+      fontWeight: '700',
+      color: '#FFF',
+    },
+    subtitle: {
+      fontSize: 16,
+      color: '#EAEAEA',
+      fontWeight: '500',
+      lineHeight: 22,
+      marginTop: 4,
+    },
+  // ...existing code...
   section: {
     marginBottom: 24,
+    paddingTop: 16,
   },
   sectionHeader: {
     flexDirection: 'row',
@@ -198,6 +210,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   sectionTitle: {
+    paddingHorizontal: 24, // Use padding instead of spaces in text
     fontSize: 20,
     fontWeight: '600',
     color: '#2C3E50',
@@ -226,4 +239,16 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#2E86C1',
   },
+  bookingsButton: {
+    backgroundColor: '#2E86C1',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+  },
+  bookingsButtonText: {
+    color: '#FFF', // White text to match the theme
+    fontWeight: '600',
+    fontSize: 14,
+  },
+
 });

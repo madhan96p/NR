@@ -161,7 +161,7 @@ export const places = [
     name: 'Mahabalipuram, Tamil Nadu',
     category: 'Historical',
     description: 'A UNESCO World Heritage Site on the Coromandel Coast, Mahabalipuram is famous for its ancient rock-cut temples, intricate stone carvings, and unique coastal architecture from the Pallava dynasty. Highlights include the Shore Temple and the Five Rathas, showcasing India’s early Dravidian architectural brilliance.',
-    image: 'https://www.india.com/wp-content/uploads/2018/11/Mahabalipuram.jpg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://static.tripzilla.in/media/122057/conversions/fb2449e3-eab5-4f87-a927-ea646b9e95d5-w768.webp?auto=compress&cs=tinysrgb&w=800',
     rating: 4.8,
     price: '₹500 – ₹1500\n(Travel + Entry)',
     coordinates: { latitude: 12.6269, longitude: 80.1925 },

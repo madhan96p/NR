@@ -9,6 +9,7 @@ import {
   StyleSheet,
   SafeAreaView,
   Linking,
+  Image,
   Pressable,
 } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
@@ -113,17 +114,27 @@ export default function ExploreScreen() {
         {/* Header */}
         <View style={styles.header}>
           <View style={styles.headerTopRow}>
+
+            <Image
+              source={require('../../assets/images/icon.png')}
+              style={styles.logo}
+            />
+
             <Text style={styles.title}>
               {searchQuery
                 ? `Results for "${searchQuery}"`
-                : params.category ? `${params.category} Destinations` : 'Explore Places'}
+                : params.category
+                  ? `${params.category} Destinations`
+                  : 'Explore Places'}
             </Text>
+
             {params.category && !searchQuery && (
               <Pressable onPress={handleClearCategory}>
                 <Text style={styles.clearButtonText}>Show All</Text>
               </Pressable>
             )}
           </View>
+
           <Text style={styles.subtitle}>
             {filteredPlaces.length} {filteredPlaces.length === 1 ? 'place' : 'places'} found
           </Text>
@@ -186,7 +197,7 @@ const styles = StyleSheet.create({
   },
   headerTopRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 4,
   },
@@ -199,6 +210,16 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#7F8C8D',
   },
+  logo: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    marginRight: 16,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 255, 255, 0.7)',
+  },
+
+
   section: {
     paddingHorizontal: 24,
     paddingTop: 16,

@@ -16,11 +16,13 @@ import {
     Modal,
     FlatList,
     Platform,
+    Image,
 } from 'react-native';
 import { Calendar, MapPin, Users, Phone, Mail, MessageSquare } from 'lucide-react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
 import { locations } from '../../data/locations';
+import { router } from 'expo-router';
 
 export default function BookingScreen() {
     const [formData, setFormData] = useState({
@@ -223,9 +225,18 @@ export default function BookingScreen() {
                 <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
                     {/* Header */}
                     <View style={styles.header}>
-                        <Text style={styles.title}>Book Your Trip</Text>
-                        <Text style={styles.subtitle}>Fill in the details below to book your journey</Text>
+                        <View style={styles.headerTopRow}>
+                            <Image
+                                source={require('../../assets/images/icon.png')}
+                                style={styles.logo}
+                            />
+                            <Text style={styles.title}>Book Your Trip</Text>
+                        </View>
+                        <Text style={styles.subtitle}>
+                            Fill in the details below to book your journey
+                        </Text>
                     </View>
+
 
                     {/* Form */}
                     <View style={styles.form}>
@@ -316,7 +327,8 @@ export default function BookingScreen() {
                                         style={[styles.input, !formData.travelDate && styles.placeholderText]}
                                         value={formData.travelDate}
                                         onChangeText={(text) => updateField('travelDate', text)}
-                                        keyboardType="date"
+                                        keyboardType="default"
+                                        editable={false}
                                         placeholder="DD/MM/YYYY"
                                     />
                                 </View>
@@ -443,6 +455,19 @@ const styles = StyleSheet.create({
     },
     scrollView: {
         flex: 1,
+    },
+    logo: {
+        width: 48,
+        height: 48,
+        borderRadius: 24,
+        marginRight: 16,
+        borderWidth: 2,
+        borderColor: 'rgba(255, 255, 255, 0.7)',
+    },
+    headerTopRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 8,
     },
     header: {
         padding: 24,

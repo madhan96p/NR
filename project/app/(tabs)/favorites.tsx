@@ -9,6 +9,7 @@ import {
   StyleSheet,
   SafeAreaView,
   Linking,
+  Image,
 } from 'react-native';
 import { router } from 'expo-router';
 import { places } from '../../data/places';
@@ -65,7 +66,14 @@ export default function FavoritesScreen() {
       <SafeAreaView style={styles.container}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>My Favorites</Text>
+          <View style={styles.headerTopRow}>
+            <Image
+              source={require('../../assets/images/icon.png')}
+              style={styles.logo}
+            />
+            <Text style={styles.title}>My Favorites</Text>
+          </View>
+
           <Text style={styles.subtitle}>
             {favoritePlaces.length} {favoritePlaces.length === 1 ? 'place' : 'places'} saved
           </Text>
@@ -111,6 +119,20 @@ const styles = StyleSheet.create({
     padding: 24,
     paddingBottom: 16,
   },
+  logo: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    marginRight: 16,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 255, 255, 0.7)',
+  },
+  headerTopRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+
   title: {
     fontSize: 28,
     fontWeight: '700',
