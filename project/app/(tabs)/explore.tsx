@@ -128,6 +128,13 @@ export default function ExploreScreen() {
                   : 'Explore Places'}
             </Text>
 
+
+          </View>
+
+          <View style={styles.row}>
+            <Text style={styles.subtitle}>
+              {filteredPlaces.length} {filteredPlaces.length === 1 ? 'place' : 'places'} found
+            </Text>
             {params.category && !searchQuery && (
               <Pressable onPress={handleClearCategory}>
                 <Text style={styles.clearButtonText}>Show All</Text>
@@ -135,9 +142,6 @@ export default function ExploreScreen() {
             )}
           </View>
 
-          <Text style={styles.subtitle}>
-            {filteredPlaces.length} {filteredPlaces.length === 1 ? 'place' : 'places'} found
-          </Text>
         </View>
 
         {/* Search Bar */}
@@ -219,6 +223,12 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255, 255, 255, 0.7)',
   },
 
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between', // pushes left and right
+    alignItems: 'center', // vertically align items
+    width: '100%', // ensure full width
+  },
 
   section: {
     paddingHorizontal: 24,
@@ -227,7 +237,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 20,
-    fontWeight: '600',
+    fontWeight: '500',
     color: '#2C3E50',
     marginBottom: 16,
   },

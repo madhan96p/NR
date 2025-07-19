@@ -105,7 +105,7 @@ export default function HomeScreen() {
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Categories Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Categories</Text>
+          <Text style={styles.sectionTitle}>    Categories</Text>
           <FlatList
             data={categories}
             renderItem={renderCategory}
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
   // ...existing code...
     headerBackground: {
       width: '100%',
-      height: 160, // Slightly taller for more impact
+      height: 120, // Slightly taller for more impact
     },
     headerOverlay: {
       flex: 1,

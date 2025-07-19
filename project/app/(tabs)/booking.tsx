@@ -222,21 +222,21 @@ export default function BookingScreen() {
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
                 style={styles.keyboardView}
             >
-                <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
-                    {/* Header */}
-                    <View style={styles.header}>
-                        <View style={styles.headerTopRow}>
-                            <Image
-                                source={require('../../assets/images/icon.png')}
-                                style={styles.logo}
-                            />
-                            <Text style={styles.title}>Book Your Trip</Text>
-                        </View>
-                        <Text style={styles.subtitle}>
-                            Fill in the details below to book your journey
-                        </Text>
-                    </View>
 
+                {/* Header */}
+                <View style={styles.header}>
+                    <View style={styles.headerTopRow}>
+                        <Image
+                            source={require('../../assets/images/icon.png')}
+                            style={styles.logo}
+                        />
+                        <Text style={styles.title}>Book Your Trip</Text>
+                    </View>
+                    <Text style={styles.subtitle}>
+                        Fill in the details below to book your journey
+                    </Text>
+                </View>
+                <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
 
                     {/* Form */}
                     <View style={styles.form}>
