@@ -80,7 +80,6 @@ export const categories = [
     image: 'https://gangatimes.com/wp-content/uploads/2021/09/dudhsagar-falls_1479812208_sGcvOQ.jpg?auto=compress&cs=tinysrgb&w=800',
     color: '#3498DB'
   },
-
 ];
 
 export const places = [
@@ -267,7 +266,7 @@ export const places = [
     description: 'The Vaigai Dam, located near Madurai, is a popular weekend getaway known for its serene surroundings, landscaped gardens, and boating facilities. It is a great spot for families, nature lovers, and photography enthusiasts.',
     image: 'https://www.sterlingholidays.com/activities/madurai/bannerimage/madurai-vaigai-dam-activity.jpg.imgw.1280.1280.jpeg?auto=compress&cs=tinysrgb&w=800',
     rating: 4.2,
-    price: '₹50 – ₹200 (Entry + Boating)',
+    price: '  ₹50 – ₹200 \n(Entry + Boating)',
     coordinates: { latitude: 9.9333, longitude: 78.3766 },
     highlights: [
       'Beautifully maintained gardens and picnic areas',
@@ -301,7 +300,7 @@ export const places = [
     description: 'Tiruparankundram Murugan Temple, one of the six sacred abodes (Arupadai Veedu) of Lord Murugan, is renowned for its rock-cut architecture and spiritual significance. Set on a hillock near Madurai, the temple is a major pilgrimage center attracting devotees and tourists alike.',
     image: 'https://www.omspiritualshop.com/cdn/shop/articles/murugan-temple-03_1_1024x1024.jpg?auto=compress&cs=tinysrgb&w=800',
     rating: 4.5,
-    price: '₹50 – ₹300 (Special Entry & Pilgrimage Donations)',
+    price: '₹50 – ₹300 (Special Entry \n& Pilgrimage Donations)',
     coordinates: { latitude: 9.8949, longitude: 78.0666 },
     highlights: [
       'One of Lord Murugan’s 6 sacred abodes',
