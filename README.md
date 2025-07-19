@@ -23,9 +23,9 @@
 ## 📱 App Preview
 
 <p align="center">
-  <img src="assets/screens/home.png" width="250" alt="Home Screen" />
-  <img src="assets/screens/explore.png" width="250" alt="Explore Screen" />
-  <img src="assets/screens/booking.png" width="250" alt="Booking Flow" />
+  <img src="https://github.com/madhan96p/NR/blob/main/project/assets/images/home.jpg" width="250" alt="Home Screen" />
+  <img src="https://github.com/madhan96p/NR/blob/main/project/assets/images/explore.jpg" width="250" alt="Explore Screen" />
+  <img src="https://github.com/madhan96p/NR/blob/main/project/assets/images/booking.jpg" width="250" alt="Booking Flow" />
 </p>
 
 ---
