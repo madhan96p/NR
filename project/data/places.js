@@ -91,9 +91,9 @@ export const places = [
     image: 'https://i.pinimg.com/736x/76/79/3d/76793da7bfafd0a39c5a47d896d2d730.jpg?auto=compress&cs=tinysrgb&w=800',
     rating: 4.6,
     price: '₹3000 – ₹8000\n(Local food & rides)',
-    coordinates: { latitude: 13.0500, longitude: 80.2824 },
+    coordinates: { latitude: 13.048720, longitude: 80.282024 },
     highlights: ['Golden sands', 'Sunrise views', 'Street food', 'Historic landmarks'],
-  },
+  }, 
   {
     id: '2',
     name: 'Kodaikanal, Tamil Nadu',
@@ -102,7 +102,7 @@ export const places = [
     image: 'https://www.namasteindiatrip.com/blog/wp-content/uploads/2017/04/Pillar-Rocks-Kodaikanal-in-tamil-nadu.webp?auto=compress&cs=tinysrgb&w=800',
     rating: 4.8,
     price: '₹3000 – ₹6000\n(Stay + Travel)',
-    coordinates: { latitude: 10.2381, longitude: 77.4892 },
+    coordinates: { latitude: 10.2383337, longitude: 77.4893264 },
     highlights: [
       'Coaker’s Walk – scenic viewpoint',
       'Kodaikanal Lake – boating & cycling',
@@ -130,7 +130,7 @@ export const places = [
     image: 'https://ramyashotels.com/wp-content/uploads/2021/06/Thanjavur-temple-Ramyas-Hotels-Trichy.jpg?auto=compress&cs=tinysrgb&w=800',
     rating: 4.8,
     price: '₹500 – ₹1500\n(Travel + Entry: Free)',
-    coordinates: { latitude: 10.7847, longitude: 79.1316 },
+    coordinates: { latitude: 10.7826743, longitude: 79.1313026 },
     highlights: ['Grand Chola architecture', 'Intricate stone sculptures', 'UNESCO World Heritage Site', 'Historical significance'],
   },
   {
@@ -141,9 +141,9 @@ export const places = [
     image: 'https://beachesofindia.in/wp-content/uploads/2017/07/RAMESWARAM-BEACH-%E2%80%93-TAMIL-NADU.jpg?auto=compress&cs=tinysrgb&w=800',
     rating: 4.7,
     price: '₹1500 – ₹3000\n(Travel + Local Food)',
-    coordinates: { latitude: 9.2887, longitude: 79.3129 },
+    coordinates: { latitude: 9.215023, longitude: 79.358272 },
     highlights: ['Shallow turquoise waters', 'Golden sandy shoreline', 'Breathtaking sunrise views', 'Close proximity to Ramanathaswamy Temple'],
-  },
+  }, 
   {
     id: '6',
     name: 'Ooty, Tamil Nadu',
@@ -163,7 +163,7 @@ export const places = [
     image: 'https://static.tripzilla.in/media/122057/conversions/fb2449e3-eab5-4f87-a927-ea646b9e95d5-w768.webp?auto=compress&cs=tinysrgb&w=800',
     rating: 4.8,
     price: '₹500 – ₹1500\n(Travel + Entry)',
-    coordinates: { latitude: 12.6269, longitude: 80.1925 },
+    coordinates: { latitude: 12.6164538, longitude: 80.1981788 },
     highlights: ['Shore Temple', 'Five Rathas', 'Stone carvings', 'Cultural history'],
   },
   {
@@ -185,7 +185,7 @@ export const places = [
     image: 'https://xplro.com/wp-content/uploads/2024/05/Xplro-2024-05-14T184958.297.jpg.webp?auto=compress&cs=tinysrgb&w=800',
     rating: 4.6,
     price: '₹1000 – ₹2500\n(Travel + Boat Ride)',
-    coordinates: { latitude: 11.4294, longitude: 79.7694 },
+    coordinates: { latitude: 11.431586, longitude: 79.781023 },
     highlights: ['Mangrove boat rides', 'Bird watching', 'Eco-tourism', 'Serene backwaters'],
   },
   {
