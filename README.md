@@ -23,20 +23,17 @@
 ## 📱 App Preview
 
 <p align="center">
-  <img src="https://github.com/madhan96p/NR/blob/main/project/assets/images/home.jpg" width="220" alt="Home Screen" />
-  <img src="https://github.com/madhan96p/NR/blob/main/project/assets/images/explore.jpg" width="220" alt="Explore Screen" />
-  <img src="https://github.com/madhan96p/NR/blob/main/project/assets/images/booking.jpg" width="220" alt="Booking Flow" />
+  <img src="https://github.com/madhan96p/NR/blob/main/project/assets/images/home.jpg" width="150" alt="Home Screen" />
+  <img src="https://github.com/madhan96p/NR/blob/main/project/assets/images/explore.jpg" width="150" alt="Explore Screen" />
+  <img src="https://github.com/madhan96p/NR/blob/main/project/assets/images/booking.jpg" width="150" alt="Booking Flow" />
 </p>
+
 
 ---
 
-## 🎥 Video Demo
+## 🎥 App Demo Video
 
-<p align="center">
-  <video src="https://github.com/madhan96p/NR/blob/main/To%20present/Blue%20Modern%20Mobile%20Application%20Presentation.mp4?raw=true" width="600" controls>
-    Your browser does not support the video tag.
-  </video>
-</p>
+[![Watch the video](https://vumbnail.com/1103010675.jpg)](https://vimeo.com/1103010675)
 
 ---
 
