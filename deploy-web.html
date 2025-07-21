@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Travel Guide App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2E86C1, #1B4F72);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 500px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 25px;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .features {
+            text-align: left;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .feature-icon {
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #27AE60;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(39, 174, 96, 0.3);
+        }
+
+        .download-btn:hover {
+            background: #229954;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(39, 174, 96, 0.4);
+        }
+
+        .info {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .version {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://via.placeholder.com/120x120/2E86C1/FFFFFF?text=TG" alt="Travel Guide App" class="app-icon">
+        
+        <h1>Travel Guide App</h1>
+        <p class="subtitle">Your Ultimate Tamil Nadu Travel Companion</p>
+        
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">🏖️</span>
+                <span>30+ Curated Destinations</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📱</span>
+                <span>Offline-First Experience</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🎯</span>
+                <span>Smart Booking System</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">❤️</span>
+                <span>Personalized Favorites</span>
+            </div>
+        </div>
+
+        <a href="#" class="download-btn" id="downloadBtn">
+            📱 Download APK (Android)
+        </a>
+
+        <div class="info">
+            <strong>Installation Instructions:</strong><br>
+            1. Enable "Unknown Sources" in Android Settings<br>
+            2. Download and tap the APK file<br>
+            3. Follow installation prompts<br>
+            4. Enjoy exploring Tamil Nadu!
+        </div>
+
+        <div class="version">
+            Version 1.0.0 | Size: ~25 MB | Android 6.0+
+        </div>
+    </div>
+
+    <script>
+        // Replace this URL with your actual APK download link
+        const APK_DOWNLOAD_URL = 'https://your-server.com/travel-guide-app.apk';
+        
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Analytics tracking (optional)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'download', {
+                    'event_category': 'APK',
+                    'event_label': 'Travel Guide App'
+                });
+            }
+            
+            // Start download
+            window.location.href = APK_DOWNLOAD_URL;
+            
+            // Show thank you message
+            setTimeout(() => {
+                alert('Thank you for downloading! Please check your downloads folder.');
+            }, 1000);
+        });
+
+        // Check if user is on mobile
+        if (/Android/i.test(navigator.userAgent)) {
+            document.querySelector('.subtitle').textContent += ' - Optimized for your device!';
+        }
+    </script>
+</body>
+</html>
