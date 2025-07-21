@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Niranjan Travels",
-    "slug": "Niranjan Travels",
+    "slug": "niranjan-travels",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -16,9 +16,22 @@
       "output": "single",
       "favicon": "./assets/images/icon.png"
     },
-    "plugins": ["expo-router", "expo-font", "expo-web-browser"],
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-web-browser"
+    ],
     "experiments": {
       "typedRoutes": true
+    },
+    "android": {
+      "package": "com.anonymous.NiranjanTravels"
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "98ebbf00-52f3-4fe0-b3d2-d8c154a1964d"
+      }
     }
   }
 }
